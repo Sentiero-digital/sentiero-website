@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    container: {center:true},
     fontFamily: {
       'aeonik': ['"Aeonik"', 'sans-serif'],
     },
@@ -19,7 +20,7 @@ module.exports = {
     function ({addComponents}) {
       addComponents({
         '.container': {
-          maxWidth: '94.45%',
+          maxWidth: '94.45%'
         }
       })
     },
