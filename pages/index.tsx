@@ -1,6 +1,5 @@
 import type {NextPage} from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 
 const Home: NextPage = () => {
   return (
@@ -55,14 +54,12 @@ const Home: NextPage = () => {
               <article className="md:row my-8">
                 <div className="md:col-span-5 lg:col-span-4 ">
                   <div className="card aspect-video overflow-hidden relative --no-padding">
-                    <Image src={'/images/experiments/ikea-mosaic-system.png'}
-                           layout={'fill'}
-                           objectFit={'cover'}
-                           objectPosition={'center'}
-                           width={400}
-                           height={300}
-                           alt={'Preview for ikea mosaic system'}
-                           loading={'lazy'}
+                    <img src={'/images/experiments/ikea-mosaic-system.png'}
+                         className="object-cover object-center absolute top-0 left-0 w-full h-full"
+                         width={400}
+                         height={300}
+                         alt={'Preview for ikea mosaic system'}
+                         loading={'lazy'}
                     />
                   </div>
                   <div className={'my-2'}>
