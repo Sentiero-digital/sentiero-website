@@ -38,7 +38,8 @@ const Home: NextPage = () => {
                     <p className={'text-sm text-gray-600 md:text-lg '}>Building only beautyful products</p>
                   </div>
                   <div className="col-span-12 md:col-start-4 md:col-span-6">
-                    <p className="text-sm md:text-lg ">In love with discover, test and build <u>good code</u>, <wbr/>try
+                    <p className="text-sm md:text-lg ">In love with discovering, testing and building <u>good
+                      code</u>, <wbr/>trying
                       new technologies every day using lean approach. <wbr/>Agile and clean-code centric methodology for
                       building maintainable, accessibility-first web solutions.
                     </p>
@@ -63,12 +64,17 @@ const Home: NextPage = () => {
                     />
                   </div>
                   <div className={'my-2'}>
-                    <a href="#" target="_blank" rel={'noreferrer'}>Demo</a> — <a href="#" target={'_blank'}
-                                                                                 rel={'noreferrer'}>Check on Github</a>
+                    <a href="https://ikea-card-system-sentiero.onrender.com"
+                       target="_blank"
+                       title={'Check the demo'}
+                       rel={'noreferrer'}>Demo</a> — <a href="https://github.com/Sentiero-digital/ikea-card-system"
+                                                        target={'_blank'}
+                                                        title={'Check the code'}
+                                                        rel={'noreferrer'}>Check on Github</a>
                   </div>
                 </div>
                 <div className="col-span-8 col-start-1 lg:col-span-6 lg:col-start-5 ">
-                  <h3 className="text-4xl mb-3 font-light">Ikea featured card system</h3>
+                  <h3 className="text-4xl mb-3 font-light">Ikea featured cards system</h3>
 
                   <div className="text-sm w-3/4">
                     <p>Recreating <a href="https://www.ikea.com/it/it/" target={'_blank'}

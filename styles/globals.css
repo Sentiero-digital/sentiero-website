@@ -21,13 +21,24 @@ body {
 }
 
 a {
+  --after-content: none;
   text-decoration: underline;
   text-underline-position: under;
 
-  &[target="_blank"]{
-    &:after{
-      content: " ↗";
-    }
+  &:after {
+    content: var(--after-content);
+  }
+
+  &:not([href^="#"]) {
+    --after-content: " →"
+  }
+
+  &[target="_blank"] {
+    --after-content: " ↗";
+  }
+
+  &[download] {
+    --after-content: " ↓";
   }
 
   &:hover {
@@ -35,15 +46,15 @@ a {
   }
 }
 
-@layer base{
+@layer base {
   .row {
     @apply grid grid-cols-12 gap-col;
   }
 
-  .card{
+  .card {
     @apply rounded-xl bg-gray-100;
 
-    &:not(.\--no-padding){
+    &:not(.\--no-padding) {
       @apply p-col;
     }
   }
