@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en'
+  swcMinify: true,
+  exportPathMap: async function (
+      defaultPathMap,
+      {dev, dir, outDir, distDir, buildId}
+  ) {
+    return {
+      '/': {page: '/'}
+    }
   }
 }
 
