@@ -83,6 +83,37 @@ const Home: NextPage = () => {
                   </div>
                 </div>
               </article>
+              <hr className="mt-3 mb-12"/>
+              <article className="md:row my-8">
+                <div className="md:col-span-5 lg:col-span-4 ">
+                  <div className="card aspect-video overflow-hidden relative --no-padding">
+                    <video className="object-cover object-center absolute top-0 left-0 w-full h-full"
+                           width={400}
+                           height={300} loop muted autoPlay>
+                      <source src={'/videos/nest-animations.mp4'}/>
+                    </video>
+                  </div>
+                  <div className={'my-2'}>
+                    <a href="https://google-nest-animation-sentiero.onrender.com/"
+                       target="_blank"
+                       title={'Check the demo'}
+                       rel={'noreferrer'}>Demo</a> — <a href="https://github.com/Sentiero-digital/google-nest-animations"
+                                                        target={'_blank'}
+                                                        title={'Check the code'}
+                                                        rel={'noreferrer'}>Check on Github</a>
+                  </div>
+                </div>
+                <div className="col-span-8 col-start-1 lg:col-span-6 lg:col-start-5 ">
+                  <h3 className="text-4xl mb-3 font-light">Google Nest animations</h3>
+
+                  <div className="text-sm w-3/4">
+                    <p>Recreating <a href="https://store.google.com/product/nest_doorbell_battery?hl=it"
+                                     target={'_blank'}
+                                     rel="noreferrer">Google store</a> header animations with React, tailwind and Framer
+                      motion.</p>
+                  </div>
+                </div>
+              </article>
             </div>
           </section>
         </main>
