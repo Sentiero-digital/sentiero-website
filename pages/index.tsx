@@ -1,7 +1,12 @@
-import type {NextPage} from 'next'
+import type {GetStaticProps, NextPage} from 'next'
 import Head from 'next/head'
+import {fetchEntries} from "@/utils/getPosts";
+import {Project} from "@/types/project";
+import {ArticleListItem} from "@/components/article-list-item/article-list-item";
+import {Fragment} from "react";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ projects: Project[] }> = ({projects = []}) => {
+  console.log({projects})
   return (
       <div className="page-root min-h-screen">
         <Head>
@@ -10,7 +15,7 @@ const Home: NextPage = () => {
           <link rel="icon" href="/favicon.ico"/>
         </Head>
 
-        <header className="pt-4 md:pt-10">
+        <header className="pt-4 md:pt-4">
           <div className="container">
             <div className="md:flex flex-row gap-col justify-between items-center">
               <div className="organization">
@@ -51,69 +56,22 @@ const Home: NextPage = () => {
 
           <section className="my-10">
             <div className="container">
-              <h2 className="text-3xl font-medium">Our experiments</h2>
-              <article className="md:row my-8">
-                <div className="md:col-span-5 lg:col-span-4 ">
-                  <div className="card aspect-video overflow-hidden relative --no-padding">
-                    <img src={'/images/experiments/ikea-mosaic-system.png'}
-                         className="object-cover object-center absolute top-0 left-0 w-full h-full"
-                         width={400}
-                         height={300}
-                         alt={'Preview for ikea mosaic system'}
-                         loading={'lazy'}
-                    />
-                  </div>
-                  <div className={'my-2'}>
-                    <a href="https://ikea-card-system-sentiero.onrender.com"
-                       target="_blank"
-                       title={'Check the demo'}
-                       rel={'noreferrer'}>Demo</a> — <a href="https://github.com/Sentiero-digital/ikea-card-system"
-                                                        target={'_blank'}
-                                                        title={'Check the code'}
-                                                        rel={'noreferrer'}>Check on Github</a>
-                  </div>
-                </div>
-                <div className="col-span-8 col-start-1 lg:col-span-6 lg:col-start-5 ">
-                  <h3 className="text-4xl mb-3 font-light">Ikea featured cards system</h3>
 
-                  <div className="text-sm w-3/4">
-                    <p>Recreating <a href="https://www.ikea.com/it/it/" target={'_blank'}
-                                     rel="noreferrer">Ikea.com</a> mosaic system, with particular focus
-                      on <em>accessibility</em>.</p>
-                  </div>
+              <div className="lg:row">
+                <div className="lg:col-span-3">
+                  <h2 className="text-3xl font-medium lg:sticky top-10">Our experiments</h2>
                 </div>
-              </article>
-              <hr className="mt-3 mb-12"/>
-              <article className="md:row my-8">
-                <div className="md:col-span-5 lg:col-span-4 ">
-                  <div className="card aspect-video overflow-hidden relative --no-padding">
-                    <video className="object-cover object-center absolute top-0 left-0 w-full h-full"
-                           width={400}
-                           height={300} loop muted autoPlay>
-                      <source src={'/videos/nest-animations.mp4'}/>
-                    </video>
-                  </div>
-                  <div className={'my-2'}>
-                    <a href="https://google-nest-animation-sentiero.onrender.com/"
-                       target="_blank"
-                       title={'Check the demo'}
-                       rel={'noreferrer'}>Demo</a> — <a href="https://github.com/Sentiero-digital/google-nest-animations"
-                                                        target={'_blank'}
-                                                        title={'Check the code'}
-                                                        rel={'noreferrer'}>Check on Github</a>
-                  </div>
-                </div>
-                <div className="col-span-8 col-start-1 lg:col-span-6 lg:col-start-5 ">
-                  <h3 className="text-4xl mb-3 font-light">Google Nest animations</h3>
 
-                  <div className="text-sm w-3/4">
-                    <p>Recreating <a href="https://store.google.com/product/nest_doorbell_battery?hl=it"
-                                     target={'_blank'}
-                                     rel="noreferrer">Google store</a> header animations with React, tailwind and Framer
-                      motion.</p>
-                  </div>
+                <div className="lg:col-span-8 lg:col-start-5">
+                  {projects?.map((article, index) => (
+                      <Fragment key={article.slug}>
+                        <ArticleListItem {...article}/>
+                        <hr className="mt-3 mb-12"/>
+                      </Fragment>
+                  ))}
                 </div>
-              </article>
+              </div>
+
             </div>
           </section>
         </main>
@@ -126,6 +84,11 @@ const Home: NextPage = () => {
         </footer>
       </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async context => {
+  const projects = await fetchEntries();
+  return {props: {projects}};
 }
 
 export default Home
