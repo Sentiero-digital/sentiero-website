@@ -1,16 +1,7 @@
-import {GraphQLClient} from "graphql-request";
+import {getHygraphClient} from "@/utils/apis/common";
 
 export async function fetchEntries() {
-  const graphcms = new GraphQLClient(
-      process.env.GRAPHCMS_URL ?? '',
-      {
-        headers: {
-          ...(process.env.GRAPHCMS_TOKEN && {
-            Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`
-          })
-        }
-      }
-  );
+  const graphcms = getHygraphClient();
 
   const {projects = []} = await graphcms.request(
       `

@@ -18,7 +18,11 @@ export const ArticleListItem: FC<Project> = (article) => {
                   ? (
                       <video className="object-cover object-center absolute top-0 left-0 w-full h-full"
                              width={400}
-                             height={300} loop muted autoPlay>
+                             height={300}
+                             playsInline
+                             loop
+                             muted
+                             autoPlay>
                         <source src={thumbnail?.url}/>
                       </video>
                   )
