@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply font-aeonik;
+
+  font-size: 20px;
+}
+
+body {
+  background-color: #fff; /*#035962;*/
+  /*color: #212121;*/
+  font-size: .8rem;
+  color: #1c1c1c;
+}
+
+a {
+  --after-content: none;
+  text-decoration: underline;
+  text-underline-position: under;
+
+  &:after {
+    content: var(--after-content);
+  }
+
+  &:not([href^="#"], [href^="mailto:"], [href^="tel:"], .no-arrow) {
+    --after-content: " →"
+  }
+
+  &[target="_blank"] {
+    --after-content: " ↗";
+  }
+
+  &[download] {
+    --after-content: " ↓";
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@layer base {
+  .page-root {
+    @apply min-h-screen grid;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
+@layer components {
+  .row {
+    @apply grid grid-cols-12 gap-col;
+  }
+
+  .card {
+    @apply rounded-xl bg-gray-100;
+
+    &:not(.\--no-padding) {
+      @apply p-col;
+    }
+  }
+
+  .container {
+    @apply mx-auto;
+    width: 88%;
+  }
+}

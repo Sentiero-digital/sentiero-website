@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "npm run build:css && remix build",
+    "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css --postcss ./postcss.config.js",
+    "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
+    "dev:css": "tailwindcss -w -i ./styles/tailwind.css -o app/styles/app.css --postcss ./postcss.config.js",
+    "start": "remix-serve build"
+  },
+  "dependencies": {
+    "@remix-run/node": "^1.7.5",
+    "@remix-run/react": "^1.7.5",
+    "@remix-run/serve": "^1.7.5",
+    "classnames": "^2.3.2",
+    "graphql": "^16.6.0",
+    "isbot": "^3.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.7.5",
+    "@remix-run/eslint-config": "^1.8.1",
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.5.0",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "graphql-request": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "postcss-color-function": "^1.2.0",
+    "postcss-import": "^15.0.0",
+    "postcss-nesting": "^10.2.0",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.2.2",
+    "typescript": "^4.9.4"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
