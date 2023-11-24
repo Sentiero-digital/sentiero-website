@@ -17,12 +17,17 @@ const Home: NextPage<{ projects: Project[] }> = ({projects = []}) => {
 
         <header className="pt-4 md:pt-4">
           <div className="container">
-            <div className="md:flex flex-row gap-col justify-between items-center">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-col justify-between md:items-center">
               <div className="organization">
-                <img src="/images/logo.svg" height={80} width={80} alt=""/>
+                <img src="/images/logo-2023.svg" height={80} width={120} alt=""/>
                 <h1 className={'font-medium text-3xl hidden mb-1'}>Sentiero | Handcrafted, high quality, digital
                   products.</h1>
               </div>
+              <nav>
+                <ul className="flex flex-row gap-col">
+                  <li><a className="leading-loose" href="https://blog.sentiero.digital/">Articles</a></li>
+                </ul>
+              </nav>
             </div>
           </div>
         </header>
